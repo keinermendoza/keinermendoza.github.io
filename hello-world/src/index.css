@@ -1,0 +1,8 @@
+/* for togggle the text stop following when state is following */
+.x-card .btn-following.is-following:hover .btn-following-text {
+  display: none;
+}
+
+.x-card .btn-following.is-following:hover .btn-following-text-stop {
+  display: inline;
+}
