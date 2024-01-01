@@ -1,4 +1,4 @@
-export default function Msquare({children, updateBoard=console.log, index, isSelected, winnerSquare}) {
+export default function Msquare({children, index, isSelected, winnerSquare, updateBoard=console.log}) {
     return (
         <button 
             onClick={() => updateBoard(index)}
