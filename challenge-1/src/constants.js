@@ -1,6 +1,7 @@
 export const API_RANDOM_CAT_FACT = 'https://catfact.ninja/fact'
 export const API_RANDOM_CAT_IMAGE = "https://api.thecatapi.com/v1/images/search?size=small&format=json&&order=RANDOM&page=0&limit=1"
 export const API_ADD_TEXT_TO_IMAGE = 'https://textoverimage.moesif.com/image'
+export const API_CATAAS = 'https://cataas.com/cat/'
 
 export const FONTS = {
   xs:'14',
