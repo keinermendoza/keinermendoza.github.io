@@ -15,7 +15,7 @@ function App() {
           <button className='border rounded-lg py-1 px-2' type='submit' >Search</button>
         </form>
       </header>
-      <main>
+      <main className='w-full'>
         <Movies movies={movies} />
       </main>
     </div>

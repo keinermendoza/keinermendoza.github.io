@@ -1,12 +1,13 @@
 function MovieList({movies}) {
     return (
-        <ul>
+        <ul className="grid gap-2 grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
             {
             movies.map(result => (
-                <li key={result.id}>
-                    <h3>{result.title}</h3>
+                <li className="flex flex-col" key={result.id}>
+                    
+                    <h3 className="">{result.title}</h3>
                     <p>{result.year}</p>
-                    <img src={result.image} alt={result.title} />
+                    <img className="rounded grow" src={result.image} alt={result.title} />
                 </li>
             ))
             }
