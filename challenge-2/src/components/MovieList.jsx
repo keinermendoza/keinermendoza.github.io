@@ -22,10 +22,10 @@ function NoMovies() {
 }
 
 export function Movies({movies}) {
-    
+    const hasMovies = movies?.length > 0
 
     return (
-        movies 
+        hasMovies
         ? <MovieList movies={movies} />
         : <NoMovies />
     )
