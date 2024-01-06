@@ -1,15 +1,14 @@
-import MovieResults from '../mook/MovieResults.json'
-// import MovieNotFound from '../mook/MovieNotFound.json'
+import {  useState } from 'react'
+import { searchMovies } from '../services/searchMovies'
 
+export function useMovies({query}) {
 
-export function useMovies() {
-    const movies =  MovieResults.Search
-    const MappedMovies = movies?.map((movie) => ({
-        image: movie.Poster,
-        title: movie.Title,
-        type: movie.Type,
-        year: movie.Year,
-        id: movie.imdbID
-    }))
-    return { movies: MappedMovies}
+    const [movies, setMovies] = useState(null)
+
+    async function getMovies({query}) {
+        const responseMovies = await searchMovies({query})
+        setMovies(responseMovies)
+    }
+
+    return { movies, getMovies }
 }

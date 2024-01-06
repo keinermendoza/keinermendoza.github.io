@@ -1,13 +1,13 @@
 function MovieList({movies}) {
     return (
-        <ul className="grid gap-2 grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
+        <ul className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
             {
             movies.map(result => (
-                <li className="flex flex-col" key={result.id}>
-                    
-                    <h3 className="">{result.title}</h3>
+                <li className="flex gap-2 flex-col" key={result.id}>
+                    <h3>{result.title}</h3>
                     <p>{result.year}</p>
-                    <img className="rounded grow" src={result.image} alt={result.title} />
+                    
+                    <img className="rounded grow object-cover" src={result.image} alt={result.title} />
                 </li>
             ))
             }
@@ -22,10 +22,10 @@ function NoMovies() {
 }
 
 export function Movies({movies}) {
-    const hasMovies = movies?.length > 0
+    
 
     return (
-        hasMovies 
+        movies 
         ? <MovieList movies={movies} />
         : <NoMovies />
     )
