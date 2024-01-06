@@ -3,21 +3,20 @@ import '../dist/output.css'
 import { Movies } from './components/MovieList'
 import { useMovies } from './hooks/useMovies'
 import { useQuery } from './hooks/useQuery'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { ORDER_OPTIONS } from './constants'
+import debounce from "just-debounce-it";
 
 function App() {
   const [sort, setSort] = useState('default')
   const {query, error, setQuery} = useQuery()
   const {movies, getMovies, loading, responseError} = useMovies({query, sort})
 
-
-  console.log('re-rendering...', query)
   
   function handleChangeQuery(e) {
     const newQuery = e.target.value
     setQuery(newQuery)
-    getMovies({query})
+    getMoviesDebounced(newQuery)
   }
 
   function handleSubmit(e) {
@@ -31,6 +30,13 @@ function App() {
     setSort(newOrder)
   }
 
+  // useCallback is a wrapper debounce is another wrapper
+  const getMoviesDebounced = useCallback(
+    debounce((query) => {
+      console.log("debounce")
+      getMovies({query}) // it expects a named parameter
+    }, 500)
+    ,[])
  
 
   return (
